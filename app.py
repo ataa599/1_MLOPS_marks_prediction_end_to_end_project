@@ -4,6 +4,7 @@ from src.logger import logging
 
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 if __name__ == "__main__":
     # try:
@@ -20,6 +21,13 @@ if __name__ == "__main__":
 
     obj_transformation = DataTransformation()
     train_array, test_array, _ = obj_transformation.initiate_data_transformation(train,test)
+
+    # Checking Model trainer class
+    obj_model_trainer = ModelTrainer()
+    r2_score = obj_model_trainer.initiate_model_trainer(train_array, test_array)
+    print(f"The accuracy of the best model is {r2_score}")
+
+    
 
 
     
