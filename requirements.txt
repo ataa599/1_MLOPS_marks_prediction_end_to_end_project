@@ -10,5 +10,5 @@ numpy
 seaborn
 matplotlib
 scikit-learn
-xgboost
+fastapi[standard]
 # -e .

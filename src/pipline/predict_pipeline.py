@@ -19,7 +19,8 @@ class PredictPipeline:
             print("After Loading")
             data_scaled=preprocessor.transform(features)
             preds=model.predict(data_scaled)
-            return preds
+            pred_round = round(preds[0],2)
+            return pred_round
 
         except Exception as e:
             raise CustomException(e, sys)
