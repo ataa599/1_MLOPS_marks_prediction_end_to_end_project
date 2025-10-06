@@ -48,6 +48,50 @@ This project is an end-to-end MLOps application that predicts a student's math s
 - Cloud deployment on AWS (EC2) for public access.
 
 ---
+## Visual Pipeline Overview
+
+```mermaid
+flowchart TD
+	%% === LOCAL DEVELOPMENT ===
+	subgraph LOCAL["🧩 Local Development"]
+		A["Data Ingestion"]
+		B["Data Transformation"]
+		C["Model Training & Optimization"]
+		D["Prediction Pipeline"]
+	end
+
+	%% === CI/CD PIPELINE ===
+	subgraph Docker["Dockerize"]
+		E["Dockerize Application"]
+        F["Build & Test Docker Image"]
+	end
+
+	%% === CI/CD PIPELINE ===
+	subgraph CI_CD["⚙️ CI/CD Pipeline (GitHub Actions)"]
+		G["Push to GitHub Repository"]
+		G["Continuous Integration"]
+		I["Push Image to AWS ECR"]
+	end
+
+	%% === CLOUD DEPLOYMENT ===
+	subgraph DEPLOY["☁️ Cloud Deployment (AWS)"]
+		J["AWS EC2 (Self-Hosted Runner)"]
+		K["Pull Docker Image from ECR"]
+		L["Run Container & Serve FastAPI App"]
+		M["User Access via Public URL"]
+	end
+
+	%% === FLOW BETWEEN STAGES ===
+	LOCAL --> Docker --> CI_CD --> DEPLOY
+
+	%% === STYLES ===
+	style LOCAL fill:#e0f7fa,stroke:#00838f,stroke-width:2px
+	style CI_CD fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+	style DEPLOY fill:#fbe9e7,stroke:#bf360c,stroke-width:2px
+	style M fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+	classDef node fill:#ffffff,stroke:#333,stroke-width:1px,rx:6px,ry:6px
+	class A,B,C,D,E,F,G,H,I,J,K,L,M node
+```
 
 ## Project Workflow & Life Cycle
 
