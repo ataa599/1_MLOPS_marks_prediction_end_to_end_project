@@ -1,44 +1,16 @@
-
-
-## Project Structure
-
-```
-1_MLOPS_marks_prediction_end_to_end_project/
-├── app.py
-├── Dockerfile
-├── README.md
-├── requirements.txt
-├── setup.py
-├── src/
-│   ├── __init__.py
-│   ├── exception.py
-│   ├── logger.py
-│   ├── utils.py
-│   ├── components/
-│   │   ├── data_ingestion.py
-│   │   ├── data_transformation.py
-│   │   ├── model_trainer.py
-│   └── pipline/
-│       ├── predict_pipeline.py
-├── templates/
-│   ├── home.html
-│   ├── index.html
-│   └── style.css
-├── artifacts/
-│   ├── data.csv
-│   ├── model.pkl
-│   ├── proprocessor.pkl
-│   ├── test.csv
-│   └── train.csv
-└── ...
-```
-
-
 ## Student Exam Performance Prediction (MLOps End-to-End Project)
 
 This project is an end-to-end MLOps application that predicts a student's math score based on demographic and academic features. It uses machine learning models and a FastAPI web interface for user interaction.
 
 ---
+## Demo Video
+![Watch the demo video](./demo_mlops.gif)
+
+## Live Demo
+
+> The application was initially deployed and tested on AWS EC2 to demonstrate cloud deployment and MLOps best practices. For ongoing public access and to avoid cloud costs, the demo is hosted on Hugging Face Spaces.
+
+You can try the deployed application here: [Student Exam Performance Predictor](https://huggingface.co/spaces/ataa599/studentperformance)
 
 ### Key Features
 - Predicts math scores using inputs like gender, ethnicity, parental education, lunch type, test preparation course, writing score, and reading score.
@@ -132,10 +104,37 @@ flowchart TD
 6. **Application Deployment**
 	- Pull the Docker image from ECR and run it on the EC2 instance, exposing the required port for public access.
 
+## Project Structure
 
-## Live Demo
+```
+1_MLOPS_marks_prediction_end_to_end_project/
+├── app.py
+├── Dockerfile
+├── README.md
+├── requirements.txt
+├── setup.py
+├── src/
+│   ├── __init__.py
+│   ├── exception.py
+│   ├── logger.py
+│   ├── utils.py
+│   ├── components/
+│   │   ├── data_ingestion.py
+│   │   ├── data_transformation.py
+│   │   ├── model_trainer.py
+│   └── pipline/
+│       ├── predict_pipeline.py
+├── templates/
+│   ├── home.html
+│   ├── index.html
+│   └── style.css
+├── artifacts/
+│   ├── data.csv
+│   ├── model.pkl
+│   ├── proprocessor.pkl
+│   ├── test.csv
+│   └── train.csv
+└── ...
+```
 
-> The application was initially deployed and tested on AWS EC2 to demonstrate cloud deployment and MLOps best practices. For ongoing public access and to avoid cloud costs, the demo is hosted on Hugging Face Spaces.
-
-You can try the deployed application here: [Student Exam Performance Predictor](https://huggingface.co/spaces/ataa599/studentperformance)
 
